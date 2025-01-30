@@ -1,0 +1,22 @@
+# Dependencies
+/node_modules/
+
+# Optional PnP (Plug'n'Play) configuration if you're using Yarn 2+
+.pnp
+.pnp.js
+
+# Logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Local environment files
+.env
+
+# IDE or editor folders and files (e.g. VSCode, WebStorm, etc.)
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

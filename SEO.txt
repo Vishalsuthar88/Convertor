@@ -1,0 +1,10 @@
+separate route
+all tools on home page
+search and filter option
+lazy loading
+meta description
+heading tags
+html semantics
+breadcrumbs
+tool cards or icons
+format not running: aac, aiff,svg

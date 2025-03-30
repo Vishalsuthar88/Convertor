@@ -4,7 +4,8 @@ import Cards from './Card';
 
 const AudioConverters = () => {
  
-  const conversionFormats=[{ from:'mp3', to:'flac',  description: 'Convert MP3 to FLAC format' },
+  const conversionFormats=[
+    { from:'mp3', to:'flac',  description: 'Convert MP3 to FLAC format' },
     { from:'mp3', to:'ogg', description: 'Convert MP3 to OGG format' },
     { from:'mp3', to:'wav', description: 'Convert MP3 to WAV format' },
     { from:'mp3', to:'aac', description: 'Convert MP3 to AAC format' },

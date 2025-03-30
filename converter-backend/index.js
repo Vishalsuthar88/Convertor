@@ -1,13 +1,16 @@
+// built in aac - lower quality
+// compiled libfdk_aac - higher quality but non free(non GPL), only for personal projects-using 
+// or use qaac wrapper(apple's aac) - better quality than ffmpeg built in encoder 
 const express = require('express');
 const app = express();
 // const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
-const ffmpeg = require('fluent-ffmpeg');
-const sharp = require('sharp')
-const multer = require('multer');
+const ffmpeg = require('fluent-ffmpeg'); //Convert audio/video formats (e.g., MP3 to FLAC, MP4 to AVI).
+const sharp = require('sharp') //Used for processing and optimizing images in Node.js.
+const multer = require('multer'); //Handles file uploads in Node.js when users upload images, videos, or documents.
 const cors = require('cors');
-app.use(cors({ origin: 'http://localhost:3001' })); // Adjust for frontend port
+app.use(cors({ origin: 'http://localhost:3000' })); // Adjust for frontend port
 
 app.use(express.json());
 const PORT = 5001;
@@ -16,7 +19,7 @@ const upload = multer({
   dest: 'uploads/',
   limits: { fileSize: 50 * 1024 * 1024 },
 })
-const supportedFormat = ['mp3', 'flac', 'wav', 'aac', 'ogg'];
+const supportedFormat = ['mp3', 'flac', 'wav', 'aac', 'ogg', 'aiff'];
 
 // Route to handle audio upload and conversion
 app.post('/convert/audio_file', upload.single('audioFile'), (req,res)=>{
@@ -36,7 +39,8 @@ app.post('/convert/audio_file', upload.single('audioFile'), (req,res)=>{
   }
   //convert audio using ffmpeg
   ffmpeg(inputfilePath)
-    .toFormat(outputFormat)
+    // .toFormat(outputFormat)
+    // .audioCodec('aac_mf')
     .on('end', () =>{
       //send download link as a json response
       const downloadUrl=`http://localhost:${PORT}/download/audio_file/${req.file.filename}.${outputFormat}`;
@@ -52,6 +56,14 @@ app.post('/convert/audio_file', upload.single('audioFile'), (req,res)=>{
       
     })
     .save(outputfilePath);
+    if(outputFormat == 'aac'){
+      ffmpeg(inputfilePath)
+        .audioCodec('aac_mf')
+      }
+    else{
+      ffmpeg(inputfilePath)
+      .toFormat(outputFormat)
+    }
 });
 
 //route for handling download requests
@@ -75,7 +87,7 @@ app.post('/convert/image_file', upload.single('imageFile'), async (req,res)=>{
   const outputFormat= req.body.format
   const inputfilePath= req.file.path 
   
-  const supportedFormats = ['bmp', 'jpg', 'jpeg', 'png', 'webp', 'tiff', 'gif'];
+  const supportedFormats = ['bmp', 'jpg', 'jpeg', 'png', 'webp', 'tiff', 'gif','tif','svg','avif'];
   const fileExtension = path.extname(req.file.originalname).toLowerCase().substring(1);
   if (!supportedFormats.includes(fileExtension)) {
     return res.status(400).send('Unsupported file format. Please upload a valid BMP, JPG, PNG, etc.');

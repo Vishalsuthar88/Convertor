@@ -56,7 +56,7 @@ function App() {
       <Route exact path='/upload/jpg-to-webp' element={<Upload from_format={'jpg'} to_format={'webp'} fileType={'image'}/>}></Route>
       <Route exact path='/upload/jpg-to-svg' element={<Upload from_format={'jpg'} to_format={'svg'} fileType={'image'}/>}></Route>
       <Route exact path='/upload/jpg-to-tiff' element={<Upload from_format={'jpg'} to_format={'tiff'} fileType={'image'}/>}></Route>
-      <Route exact path='/upload/jpg-to-aiff' element={<Upload from_format={'jpg'} to_format={'aiff'} fileType={'image'}/>}></Route>
+      <Route exact path='/upload/jpg-to-iff' element={<Upload from_format={'jpg'} to_format={'iff'} fileType={'image'}/>}></Route>
       <Route exact path='/upload/jpg-to-gif' element={<Upload from_format={'jpg'} to_format={'gif'} fileType={'image'}/>}></Route>
       {/* <Route exact path='/upload/png-to-gif' element={<Upload from_format={'png'} to_format={'gif'} fileType={'image'}/>}></Route>
       <Route exact path='/upload/bmp-to-jpg' element={<Upload from_format={'bmp'} to_format={'jpg'} fileType={'image'}/>}></Route>

@@ -16,12 +16,21 @@ const Upload = ({from_format, to_format, fileType}) => {
   
     const handleUpload = async () => {
       const formData = new FormData();
-      formData.append((fileType==='audio') ? 'audioFile' : 'imageFile', file);
+      if(fileType==='audio'){
+        formData.append('audioFile',file);
+      } else if(fileType==='image'){
+        formData.append('imageFile',file);
+      } else if(fileType==='video'){
+        formData.append('videoFile',file);
+      } else if(fileType==='document'){
+        formData.append('documentFile',file);
+      }
       formData.append('format', format); // Ensure this matches one of the supported formats
       console.log(formData)
     
       try {
-        const response = await axios.post(`http://localhost:5001/convert/${fileType}_file`, formData);
+        const response = await axios.post(`http://localhost:5001/convert/${fileType}_file`, formData, {headers: {"Content-Type":"multipart/form-data"}});
+        console.log("Upload successful:",response.data)
         const { downloadUrl } = response.data;
         setConvertedFile(downloadUrl); // Set the download URL directly
       } catch (error) {

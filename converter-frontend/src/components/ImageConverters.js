@@ -7,8 +7,8 @@ const ImageConverters = () => {
   { from:'jpg',to:'webp', description: 'Convert JPG to WEBP format' },
   {  from:'jpg',to:'gif', description: 'Convert JPG to GIF format' },
   {  from:'jpg',to:'tiff', description: 'Convert JPG to TIFF format' },
-  {  from:'jpg',to:'iff', description: 'Convert JPG to IFF format' },
-  {  from:'jpg',to:'svg', description: 'Convert JPG to SVG format' },
+  // {  from:'jpg',to:'iff', description: 'Convert JPG to IFF format' },
+  // {  from:'jpg',to:'svg', description: 'Convert JPG to SVG format' },
   // Add more formats as needed
 ];
 

@@ -63,15 +63,15 @@ function App() {
       <Route exact path='/upload/webp-to-jpg' element={<Upload from_format={'webp'} to_format={'jpg'} fileType={'image'}/>}></Route>
       <Route exact path='/upload/jpg-to-bmp' element={<Upload from_format={'jpg'} to_format={'bmp'} fileType={'image'}/>}></Route> */}
       
-      <Route exact path='/upload/mp4-to-webm' element={<Upload from_format={'mp4'} to_format={'webm'}/>}></Route>
-      <Route exact path='/upload/mp4-to-avi' element={<Upload from_format={'mp4'} to_format={'avi'}/>}></Route>
-      <Route exact path='/upload/mp4-to-mpeg' element={<Upload from_format={'mp4'} to_format={'mpeg'}/>}></Route>
-      <Route exact path='/upload/mp4-to-flv' element={<Upload from_format={'mp4'} to_format={'flv'}/>}></Route>
+      <Route exact path='/upload/mp4-to-webm' element={<Upload from_format={'mp4'} to_format={'webm'} fileType={'video'}/>}></Route>
+      <Route exact path='/upload/mp4-to-avi' element={<Upload from_format={'mp4'} to_format={'avi'} fileType={'video'}/>}></Route>
+      <Route exact path='/upload/mp4-to-mpeg' element={<Upload from_format={'mp4'} to_format={'mpeg'} fileType={'video'}/>}></Route>
+      <Route exact path='/upload/mp4-to-flv' element={<Upload from_format={'mp4'} to_format={'flv'} fileType={'video'}/>}></Route>
 
-      <Route exact path='/upload/word-to-pdf' element={<Upload from_format={'word'} to_format={'pdf'}/>}></Route>
-      <Route exact path='/upload/pdf-to-word' element={<Upload from_format={'pdf'} to_format={'word'}/>}></Route>
-      <Route exact path='/upload/csv-to-pdf' element={<Upload from_format={'csv'} to_format={'pdf'}/>}></Route>
-      <Route exact path='/upload/csv-to-json' element={<Upload from_format={'csv'} to_format={'json'}/>}></Route>
+      <Route exact path='/upload/word-to-pdf' element={<Upload from_format={'word'} to_format={'pdf'} fileType={'document'}/>}></Route>
+      <Route exact path='/upload/pdf-to-word' element={<Upload from_format={'pdf'} to_format={'word'} fileType={'document'}/>}></Route>
+      <Route exact path='/upload/csv-to-pdf' element={<Upload from_format={'csv'} to_format={'pdf'} fileType={'document'}/>}></Route>
+      <Route exact path='/upload/csv-to-json' element={<Upload from_format={'csv'} to_format={'json'} fileType={'document'}/>}></Route>
       
 
       </Routes>
